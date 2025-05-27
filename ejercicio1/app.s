@@ -39,7 +39,8 @@ loop0:
 
 	mov x0, x19         // Restaurar x0 para make_mario
 	BL make_mario      // Llamada a la función make_mario
-
+	mov x0 , x7 
+ 	bl make_hongo 
 	// Ejemplo de uso de gpios
 	mov x9, GPIO_BASE
 
