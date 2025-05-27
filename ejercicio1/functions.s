@@ -311,4 +311,646 @@ test_line:
     add sp, sp, 16
 
     ret
+
+    .globl make_mario
+make_mario:
+
+mov x0, x20
+	ADD	x0, x0, 640  //corre el inicio del pixel
+
+	mov x7, x0 // El pixel de inicio de Mario
+
+	//Gorra De Mario
+
+	mov x2, 12
+
+	mov x3, 2
+
+	movz x4, 0xDA, lsl 16	
+	movk x4, 0x340F, lsl 00 
+
+	BL horizontal_line
+
+	SUB	x0,x0,8
+
+	mov x2, 20
+
+	mov x3, 2
+
+	movz x4, 0xDA, lsl 16	
+	movk x4, 0x340F, lsl 00 
+
+	BL horizontal_line
+	
+	// Piel de Mario
+
+	mov x2, 16
+
+	mov x3, 2
+
+	movz x4, 0xF6, lsl 16
+	movk x4, 0x9534, lsl 00 
+
+	BL horizontal_line
+
+	SUB	 x0,x0,8 
+
+	mov x2, 22
+
+	mov x3, 2
+
+	movz x4, 0xF6, lsl 16	
+	movk x4, 0x9534, lsl 00 
+
+	BL horizontal_line 
+
+	mov x2, 24
+
+	mov x3, 2
+
+	movz x4, 0xF6, lsl 16	
+	movk x4, 0x9534, lsl 00 
+
+	BL horizontal_line
+
+	mov x2, 22
+
+	mov x3, 2
+
+	movz x4, 0xF6, lsl 16	
+	movk x4, 0x9534, lsl 00 
+
+	BL horizontal_line 
+
+	ADD	 x0,x0,8 
+
+	mov x2, 16
+
+	mov x3, 2
+
+	movz x4, 0xF6, lsl 16	
+	movk x4, 0x9534, lsl 00 
+
+	BL horizontal_line 
+
+	SUB	x0,x0,8 
+
+	mov x2, 16
+
+	mov x3, 2
+
+	movz x4, 0xF6, lsl 16	
+	movk x4, 0x9534, lsl 00 
+
+	BL horizontal_line
+
+	SUB	x0,x0,8 
+
+	mov x2, 22
+
+	mov x3, 2
+
+	movz x4, 0xF6, lsl 16	
+	movk x4, 0x9534, lsl 00 
+
+	BL horizontal_line 
+
+	SUB	x0,x0,8 
+
+	mov x2, 26
+
+	mov x3, 8
+
+	movz x4, 0xF6, lsl 16	
+	movk x4, 0x9534, lsl 00 
+
+	BL horizontal_line 
+
+	// Piernas
+
+	ADD	x0,x0, 16 
+
+	mov x2, 8
+
+	mov x3, 2
+
+	movz x4, 0xDA, lsl 16	
+	movk x4, 0x340F, lsl 00 
+
+	BL horizontal_line
+
+	MOV x1, 2
+
+	BL go_p_line
+
+	mov x1, 10
+	BL go_n_pixel
+
+	mov x2, 8
+
+	mov x3, 2
+
+	movz x4, 0xDA, lsl 16	
+	movk x4, 0x340F, lsl 00 
+
+	BL horizontal_line
+
+	SUB	x0,x0, 48
+
+	mov x2, 8
+
+	mov x3, 2
+
+	//Zapatillas
+
+	movz x4, 0x8D, lsl 16	
+	movk x4, 0x7203, lsl 00 
+
+	BL horizontal_line
+
+	MOV x1, 2
+
+	BL go_p_line
+
+	mov x1, 14
+	BL go_n_pixel
+
+	mov x2, 8
+
+	mov x3, 2
+
+	movz x4, 0x8D, lsl 16	
+	movk x4, 0x7203, lsl 00 
+
+	BL horizontal_line
+	
+	SUB	x0,x0, 64
+
+	mov x2, 10
+
+	mov x3, 2
+
+	movz x4, 0x8D, lsl 16	
+	movk x4, 0x7203, lsl 00 
+
+	BL horizontal_line
+
+	MOV x1, 2
+
+	BL go_p_line
+
+	mov x1, 16
+	BL go_n_pixel
+
+	mov x2, 10
+
+	mov x3, 2
+
+	movz x4, 0x8D, lsl 16	
+	movk x4, 0x7203, lsl 00 
+
+	BL horizontal_line
+
+	// Empiezo a Sobre pintar al Mario 
+
+	mov x0, x7 
+
+	mov x2, 12
+
+	mov x3, 2
+
+	movz x4, 0xDA, lsl 16	
+	movk x4, 0x340F, lsl 00 
+
+	BL horizontal_line
+
+	SUB	x0,x0,8
+
+	mov x2, 20
+
+	mov x3, 2
+
+	movz x4, 0xDA, lsl 16	
+	movk x4, 0x340F, lsl 00 
+
+	BL horizontal_line
+	
+	mov x2, 8
+
+	mov x3, 2
+
+	movz x4, 0x8D, lsl 16
+	movk x4, 0x7203, lsl 00 
+
+	BL horizontal_line
+
+	MOV x1, 2
+
+	BL go_p_line
+
+	mov x1, 12
+	BL go_n_pixel
+
+	mov x2, 2
+
+	mov x3, 2
+
+	movz x4, 0x8D, lsl 16
+	movk x4, 0x7203, lsl 00 
+
+	BL horizontal_line
+
+	SUB	x0,x0, 56
+
+	mov x2, 4
+
+	mov x3, 2
+
+	movz x4, 0x8D, lsl 16	
+	movk x4, 0x7203, lsl 00 
+
+	BL horizontal_line
+
+	MOV x1, 2
+
+	BL go_p_line
+
+	mov x1, 6
+	BL go_n_pixel
+
+	mov x2, 2
+
+	mov x3, 2
+
+	movz x4, 0x8D, lsl 16
+	movk x4, 0x7203, lsl 00 
+
+	BL horizontal_line
+
+	MOV x1, 2
+
+	BL go_p_line
+
+	mov x1, 8
+	BL go_n_pixel
+
+	mov x2, 2
+
+	mov x3, 2
+
+	movz x4, 0x8D, lsl 16
+	movk x4, 0x7203, lsl 00 
+
+	BL horizontal_line
+
+	sub x0, x0, 56
+
+	mov x2, 4
+
+	mov x3, 2
+
+	movz x4, 0x8D, lsl 16	
+	movk x4, 0x7203, lsl 00 
+
+	BL horizontal_line
+
+	// Parte inferior patilla
+
+	MOV x1, 2
+
+	BL go_p_line
+
+	mov x1, 6
+	BL go_n_pixel
+
+	mov x2, 4
+
+	mov x3, 2
+
+	movz x4, 0x8D, lsl 16
+	movk x4, 0x7203, lsl 00 
+
+	BL horizontal_line
+
+	//Bigote 
+
+	MOV x1, 2
+
+	BL go_p_line
+
+	mov x1, 10
+	BL go_n_pixel
+
+	mov x2, 2
+
+	mov x3, 2
+
+	movz x4, 0x8D, lsl 16
+	movk x4, 0x7203, lsl 00 
+
+	BL horizontal_line
+
+	SUB	x0,x0, 64
+
+	mov x2, 6
+
+	mov x3, 2
+
+	movz x4, 0x8D, lsl 16	
+	movk x4, 0x7203, lsl 00 
+
+	BL horizontal_line
+
+	MOV x1, 2
+
+	BL go_p_line
+
+	mov x1, 14
+	BL go_n_pixel
+
+	mov x2, 8
+
+	mov x3, 2
+
+	movz x4, 0x8D, lsl 16
+	movk x4, 0x7203, lsl 00 
+
+	BL horizontal_line
+ 
+	SUB	x0,x0, 48
+
+	mov x2, 2
+
+	mov x3, 2
+
+	movz x4, 0xF6, lsl 16	
+	movk x4, 0x9534, lsl 00 
+
+	BL horizontal_line
+
+	//Remera 1er parte
+
+	sub x0, x0, 8
+
+	mov x2, 6
+
+	mov x3, 2
+
+	movz x4, 0x8D, lsl 16	
+	movk x4, 0x7203, lsl 00 
+
+	BL horizontal_line
+
+	//Tirante
+
+	MOV x1, 2
+
+	BL go_p_line
+
+	mov x1, 6
+	BL go_n_pixel
+
+	mov x2, 4
+
+	mov x3, 2
+
+	movz x4, 0xDA, lsl 16
+	movk x4, 0x340F, lsl 00 
+	
+	BL horizontal_line
+
+	//2da parte remera
+
+	MOV x1, 2
+
+	BL go_p_line
+
+	mov x1, 4
+	BL go_n_pixel
+
+	mov x2, 6
+
+	mov x3, 2
+
+	movz x4, 0x8D, lsl 16	
+	movk x4, 0x7203, lsl 00 
+
+	BL horizontal_line
+
+	//Remera 1er parte abajo
+
+	sub x0, x0, 48
+
+	mov x2, 8
+
+	mov x3, 2
+
+	movz x4, 0x8D, lsl 16	
+	movk x4, 0x7203, lsl 00 
+
+	BL horizontal_line
+
+	//Tirante
+
+	MOV x1, 2
+
+	BL go_p_line
+
+	mov x1, 8
+	BL go_n_pixel
+
+	mov x2, 4
+
+	mov x3, 2
+
+	movz x4, 0xDA, lsl 16
+	movk x4, 0x340F, lsl 00 
+	
+	BL horizontal_line
+
+	MOV x1, 2
+
+	BL go_p_line
+
+	mov x1, 4
+	BL go_n_pixel
+
+	mov x2, 10
+
+	mov x3, 2
+
+	movz x4, 0x8D, lsl 16	
+	movk x4, 0x7203, lsl 00 
+
+	BL horizontal_line
+
+	//Tirante
+
+	MOV x1, 2
+
+	BL go_p_line
+
+	mov x1, 2
+	BL go_n_pixel
+
+	mov x2, 4
+
+	mov x3, 2
+
+	movz x4, 0xDA, lsl 16
+	movk x4, 0x340F, lsl 00 
+
+	BL horizontal_line
+
+	//3ra Fila remera
+
+	sub x0, x0, 64
+
+	mov x2, 10
+
+	mov x3, 2
+
+	movz x4, 0x8D, lsl 16	
+	movk x4, 0x7203, lsl 00 
+
+	BL horizontal_line
+
+	//Overol
+
+	MOV x1, 2
+
+	BL go_p_line
+
+	mov x1, 10
+	BL go_n_pixel
+
+	mov x2, 10
+
+	mov x3, 2
+
+	movz x4, 0xDA, lsl 16
+	movk x4, 0x340F, lsl 00 
+
+	BL horizontal_line
+
+	MOV x1, 2
+
+	BL go_p_line
+
+	mov x1, 10
+	BL go_n_pixel
+
+	mov x2, 6
+
+	mov x3, 2
+
+	movz x4, 0x8D, lsl 16	
+	movk x4, 0x7203, lsl 00 
+
+	BL horizontal_line
+
+	
+	//4ta Fila remera
+
+	sub x0, x0, 60
+
+	mov x2, 4
+
+	mov x3, 2
+
+	movz x4, 0x8D, lsl 16	
+	movk x4, 0x7203, lsl 00 
+
+	BL horizontal_line
+
+	MOV x1, 2
+
+	BL go_p_line
+
+	mov x1, 4
+	BL go_n_pixel
+
+	mov x2, 2
+
+	mov x3, 2
+
+	movz x4, 0xDA, lsl 16
+	movk x4, 0x340F, lsl 00 
+
+	BL horizontal_line
+
+	MOV x1, 2
+
+	BL go_p_line
+
+	mov x1, 4
+	BL go_n_pixel
+
+	mov x2, 4
+
+	mov x3, 2
+
+	movz x4, 0xDA, lsl 16
+	movk x4, 0x340F, lsl 00 
+
+	BL horizontal_line
+
+	MOV x1, 2
+
+	BL go_p_line
+
+	mov x1, 6
+	BL go_n_pixel
+
+	mov x2, 2
+
+	mov x3, 2
+
+	movz x4, 0xDA, lsl 16
+	movk x4, 0x340F, lsl 00 
+
+	BL horizontal_line
+
+	MOV x1, 2
+
+	BL go_p_line
+
+	mov x1, 2
+	BL go_n_pixel
+
+	mov x2, 2
+
+	mov x3, 2
+
+	movz x4, 0x8D, lsl 16
+	movk x4, 0x7203, lsl 00 
+
+	BL horizontal_line
+
+	SUB	x0,x0, 56 
+
+	mov x2, 14
+
+	mov x3, 2
+
+	movz x4, 0xDA, lsl 16
+	movk x4, 0x340F, lsl 00 
+	
+	BL horizontal_line
+	
+	SUB	x0,x0,4 
+
+	mov x2, 16
+
+	mov x3, 2
+
+	movz x4, 0xDA, lsl 16
+	movk x4, 0x340F, lsl 00 
+	
+	BL horizontal_line
+	
+	ldp x29, x30, [sp], #16 
+
+    ret
+
     
