@@ -30,12 +30,12 @@ loop0:
 	sub x2,x2,1	   // Decrementar contador Y
 	cbnz x2,loop1  // Si no es la última fila, salto
 
-    mov x0, x20
-    mov x1, 300
-    bl go_n_pixel
-    mov x1, 200
-    bl go_n_line
-    bl make_block_ramp
+    // mov x0, x20
+    // mov x1, 300
+    // bl go_n_pixel
+    // mov x1, 200
+    // bl go_n_line
+    // bl make_block_ramp
 
 	mov x0, x19         // Restaurar x0 para make_mario
 	BL make_mario      // Llamada a la función make_mario

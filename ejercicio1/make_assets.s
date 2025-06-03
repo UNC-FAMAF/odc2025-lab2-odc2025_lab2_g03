@@ -550,3 +550,236 @@ make_n_blocks:
     ldr x30, [sp]
     add sp, sp, 40
     ret
+
+#994E00
+    
+.globl make_block_castel
+    make_block_castel:
+    sub sp, sp, 8
+    str x30, [sp]
+
+	//Fondo Ladrillo
+
+	mov x0, x20
+	ADD	x0, x0, 200  //corre el inicio del pixel
+
+	mov x7, x0 // El pixel del Bloque
+
+	mov x2, 17 // Ancho
+
+	mov x3, 15 // Alto
+
+	movz x4, 0xDA, lsl 16	
+	movk x4, 0x340F, lsl 00 
+
+	BL horizontal_line
+
+	// Pinto lo negro
+
+	MOV	x0, x7
+
+	MOV	x2, 1
+
+	MOV	x3, 15
+
+	movz x4, 0x00, lsl 16	
+	movk x4, 0x0000, lsl 00 
+
+	BL horizontal_line  
+
+	MOV x1, 12
+
+	BL go_p_line
+
+	MOV	x2, 17
+
+	MOV	x3, 1
+
+	movz x4, 0x00, lsl 16
+	movk x4, 0x0000, lsl 00 
+
+	BL horizontal_line
+
+	MOV x1, 4
+
+	BL go_p_line
+
+	MOV x1, 8
+
+	BL go_n_pixel
+
+	MOV	x2, 1
+
+	MOV	x3, 3
+
+	movz x4, 0x00, lsl 16
+	movk x4, 0x0000, lsl 00 
+
+	BL horizontal_line
+
+	MOV x1, 3
+
+	BL go_p_line
+
+	MOV x1, 8
+
+	BL go_n_pixel
+
+	MOV	x2, 1
+
+	MOV	x3, 3
+
+	movz x4, 0x00, lsl 16
+	movk x4, 0x0000, lsl 00 
+
+	BL horizontal_line
+
+	MOV x1, 12
+
+	BL go_p_pixel
+
+	MOV	x2, 1
+
+	MOV	x3, 5
+
+	movz x4, 0x00, lsl 16
+	movk x4, 0x0000, lsl 00 
+
+	BL horizontal_line
+
+	MOV x1, 4
+
+	BL go_p_line
+
+	MOV x1, 8
+
+	BL go_n_pixel
+
+	MOV	x2, 1
+
+	MOV	x3, 4
+
+	movz x4, 0x00, lsl 16
+	movk x4, 0x0000, lsl 00 
+
+	BL horizontal_line
+
+	MOV x1, 1
+
+	BL go_p_line
+
+	MOV x1, 12
+
+	BL go_p_pixel
+
+	MOV	x2, 17
+
+	MOV	x3, 1
+
+	movz x4, 0x00, lsl 16
+	movk x4, 0x0000, lsl 00 
+
+	BL horizontal_line	
+
+	MOV x1, 3
+
+	BL go_n_line
+
+	MOV	x2, 17
+
+	MOV	x3, 1
+
+	movz x4, 0x00, lsl 16
+	movk x4, 0x0000, lsl 00 
+
+	BL horizontal_line	
+
+	MOV x1, 4
+
+	BL go_p_line
+
+	MOV x1, 8
+
+	BL go_n_pixel
+
+	MOV	x2, 1
+
+	MOV	x3, 3
+
+	movz x4, 0x00, lsl 16
+	movk x4, 0x0000, lsl 00 
+
+	BL horizontal_line	
+
+	MOV x1, 3
+
+	BL go_p_line
+
+	MOV x1, 8
+
+	BL go_n_pixel
+
+	MOV	x2, 1
+
+	MOV	x3, 3
+
+	movz x4, 0x00, lsl 16
+	movk x4, 0x0000, lsl 00 
+
+	BL horizontal_line
+
+	MOV x1, 4
+
+	BL go_n_line
+
+	MOV x1, 16
+
+	BL go_p_pixel
+
+	MOV	x2, 17
+
+	MOV	x3, 1
+
+	movz x4, 0x00, lsl 16
+	movk x4, 0x0000, lsl 00 
+
+	BL horizontal_line
+
+	MOV x1, 4
+
+	BL go_p_line
+
+	MOV x1, 4
+
+	BL go_n_pixel
+
+	MOV	x2, 1
+
+	MOV	x3, 3
+
+	movz x4, 0x00, lsl 16
+	movk x4, 0x0000, lsl 00 
+
+	BL horizontal_line
+
+	MOV x1, 3
+
+	BL go_p_line
+
+	MOV x1, 8
+
+	BL go_n_pixel
+
+	MOV	x2, 1
+
+	MOV	x3, 3
+
+	movz x4, 0x00, lsl 16
+	movk x4, 0x0000, lsl 00 
+
+	BL horizontal_line
+
+    ldr x30, [sp]
+    add sp, sp, 8
+    ret
+    
