@@ -315,7 +315,10 @@ test_line:
     .globl make_mario
 make_mario:
 
-mov x0, x20
+	SUB	sp, sp, 8 
+	STR x30, [sp]  
+	
+	mov x0, x20
 	ADD	x0, x0, 640  //corre el inicio del pixel
 
 	mov x7, x0 // El pixel de inicio de Mario
@@ -949,14 +952,19 @@ mov x0, x20
 	
 	BL horizontal_line
 	
-	ldp x29, x30, [sp], #16 
+	LDR x30 , [sp] 
+
+	ADD sp, sp, 8 
 
     ret
 
-
 .globl make_hongo
 make_hongo:
-    mov x0, x20
+
+	SUB sp, sp, 8 
+	STR x30, [sp] 
+
+    	mov x0, x20
 	ADD	x0, x0, 400 //corre el inicio del pixel
 
 	mov x7, x0 // El pixel de inicio del hongo 
@@ -1273,8 +1281,10 @@ make_hongo:
 	movz x4, 0xff, lsl 16	//Colores Fondo
 	movk x4, 0x0000, lsl 00 //Colores Fondo Ambos se combina
 
-	BL horizontal_line 
-    ldp x29, x30, [sp], #16 
+	BL horizontal_line
+ 
+   	LDR x30 , [sp] 
+	ADD	 sp, sp, 8 
 
     ret 
 
