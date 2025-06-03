@@ -273,19 +273,14 @@ make_n_blocks:
     ret
     
 #994E00
-.globl make_block_castel
-    make_block_castel:
+.globl make_block_castle
+    make_block_castle:
     sub sp, sp, 8
     str x30, [sp]
 
+    MOV	x7, x0
 	//Fondo Ladrillo
-
-	mov x0, x20
-	ADD	x0, x0, 200  //corre el inicio del pixel
-
-	mov x7, x0 // El pixel del Bloque
-
-	mov x2, 17 // Ancho
+    mov x2, 17 // Ancho
 
 	mov x3, 15 // Alto
 
@@ -503,3 +498,64 @@ make_n_blocks:
     add sp, sp, 8
     ret
     
+make_n_blocks_castle:
+    sub sp, sp, 32
+    str x30, [sp]
+
+    // Dirección base del framebuffer
+    mov x11, x0
+    str x11, [sp, 8]
+    str x9, [sp, 16]
+    str x11, [sp, 24]
+
+    loop_castle:
+        bl make_block_castle
+
+        ldr x0, [sp, 24]
+        mov x1, 17
+        bl go_n_pixel
+
+        str x0, [sp, 24]
+
+        ldr x9, [sp, 16]
+        sub x9, x9, 1
+        str x9, [sp, 16]
+
+        cbnz x9, loop_castle
+
+    ldr x0, [sp, 8]
+    mov x1, 15
+    bl go_n_line
+
+    mov x1, 17
+    bl go_p_pixel
+
+    ldr x30, [sp]
+    add sp, sp, 32
+    ret
+
+.globl make_castle
+make_castle:
+
+    SUB	 sp, sp, 8 
+    STR	 x30,[sp]
+
+    mov x9, 3
+    BL make_n_blocks_castle
+
+    mov x1 , 1
+
+    BL go_n_line
+
+    mov x1, 17
+
+    BL go_n_pixel
+
+    mov x9, 3
+    BL make_n_blocks_castle
+
+    LDR	 x30,[sp]   
+    ADD	 sp, sp, 8
+
+    RET
+
