@@ -284,8 +284,8 @@ make_n_blocks:
 
 	mov x3, 15 // Alto
 
-	movz x4, 0xDA, lsl 16	
-	movk x4, 0x340F, lsl 00 
+	movz x4, 0x99, lsl 16	
+	movk x4, 0x4E00, lsl 00 
 
 	BL horizontal_line
 
@@ -553,6 +553,51 @@ make_castle:
 
     mov x9, 3
     BL make_n_blocks_castle
+
+    MOV	 x1, 1
+
+    BL go_n_line
+
+    MOV	 x1, 1
+
+    BL go_p_pixel
+
+    mov x9, 5
+    BL make_n_blocks_castle   
+
+    MOV	 x1, 1
+
+    BL go_n_line
+
+    MOV	 x1, 17
+
+    BL go_n_pixel 
+
+    mov x9, 5
+    BL make_n_blocks_castle  
+
+    MOV	 x1, 1
+
+    BL go_n_line
+
+    MOV	 x1, 17
+
+    BL go_n_pixel 
+
+    mov x9, 5
+    BL make_n_blocks_castle   
+
+    MOV	 x1, 1
+
+    BL go_n_line 
+
+    MOV	 x1, 17
+
+    BL go_n_pixel 
+
+    mov x9, 5
+    BL make_n_blocks_castle   
+
 
     LDR	 x30,[sp]   
     ADD	 sp, sp, 8
