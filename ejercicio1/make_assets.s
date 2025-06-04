@@ -534,78 +534,7 @@ make_n_blocks_castle:
     add sp, sp, 32
     ret
 
-.globl make_castle
-make_castle:
-
-    SUB	 sp, sp, 8 
-    STR	 x30,[sp]
-
-    mov x9, 3
-    BL make_n_blocks_castle
-
-    mov x1 , 1
-
-    BL go_n_line
-
-    mov x1, 17
-
-    BL go_n_pixel
-
-    mov x9, 3
-    BL make_n_blocks_castle
-
-    MOV	 x1, 1
-
-    BL go_n_line
-
-    MOV	 x1, 1
-
-    BL go_p_pixel
-
-    mov x9, 5
-    BL make_n_blocks_castle   
-
-    MOV	 x1, 1
-
-    BL go_n_line
-
-    MOV	 x1, 17
-
-    BL go_n_pixel 
-
-    mov x9, 5
-    BL make_n_blocks_castle  
-
-    MOV	 x1, 1
-
-    BL go_n_line
-
-    MOV	 x1, 17
-
-    BL go_n_pixel 
-
-    mov x9, 5
-    BL make_n_blocks_castle   
-
-    MOV	 x1, 1
-
-    BL go_n_line 
-
-    MOV	 x1, 17
-
-    BL go_n_pixel 
-
-    mov x9, 5
-    BL make_n_blocks_castle   
-
-
-    LDR	 x30,[sp]   
-    ADD	 sp, sp, 8
-
-    RET
-
-
-.globl make_block_castle_2
+    .globl make_block_castle_2
 make_block_castle_2:
 
     SUB	 sp, sp, 8 
@@ -880,3 +809,120 @@ make_block_castle_2:
     ADD	 sp, sp, 8
 
     RET
+
+    make_n_blocks_castle_2 :
+    sub sp, sp, 32
+    str x30, [sp]
+
+    // Dirección base del framebuffer
+    mov x11, x0
+    str x11, [sp, 8]
+    str x9, [sp, 16]
+    str x11, [sp, 24]
+
+    loop_castle_2:
+        bl make_block_castle_2
+
+        ldr x0, [sp, 24]
+        mov x1, 17
+        bl go_n_pixel
+
+        str x0, [sp, 24]
+
+        ldr x9, [sp, 16]
+        sub x9, x9, 1
+        str x9, [sp, 16]
+
+        cbnz x9, loop_castle_2
+
+    ldr x0, [sp, 8]
+    mov x1, 15
+    bl go_n_line
+
+    mov x1, 17
+    bl go_p_pixel
+
+    ldr x30, [sp]
+    add sp, sp, 32
+    ret
+
+
+.globl make_castle
+make_castle:
+
+    SUB	 sp, sp, 8 
+    STR	 x30,[sp]
+
+    mov x1, 20
+
+    BL	go_p_line
+
+    mov x9, 1
+
+    BL make_n_blocks_castle_2
+
+
+    mov x9, 3
+    BL make_n_blocks_castle
+
+    mov x1 , 1
+
+    BL go_n_line
+
+    mov x1, 17
+
+    BL go_n_pixel
+
+    mov x9, 3
+    BL make_n_blocks_castle
+
+    MOV	 x1, 1
+
+    BL go_n_line
+
+    MOV	 x1, 1
+
+    BL go_p_pixel
+
+    mov x9, 5
+    BL make_n_blocks_castle   
+
+    MOV	 x1, 1
+
+    BL go_n_line
+
+    MOV	 x1, 17
+
+    BL go_n_pixel 
+
+    mov x9, 5
+    BL make_n_blocks_castle  
+
+    MOV	 x1, 1
+
+    BL go_n_line
+
+    MOV	 x1, 17
+
+    BL go_n_pixel 
+
+    mov x9, 5
+    BL make_n_blocks_castle   
+
+    MOV	 x1, 1
+
+    BL go_n_line 
+
+    MOV	 x1, 17
+
+    BL go_n_pixel 
+
+    mov x9, 5
+    BL make_n_blocks_castle   
+
+
+    LDR	 x30,[sp]   
+    ADD	 sp, sp, 8
+
+    RET
+
