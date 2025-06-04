@@ -319,9 +319,14 @@ make_mario:
 	STR x30, [sp]  
 	
 	mov x0, x20
-	ADD	x0, x0, 640  //corre el inicio del pixel
+	MOV	 x1, 400
+	BL	go_n_line
 
-	mov x7, x0 // El pixel de inicio de Mario
+	MOV	 x1, 180
+
+	BL	go_n_pixel 
+
+	mov x7, x0 
 
 	//Gorra De Mario
 
@@ -964,8 +969,14 @@ make_hongo:
 	SUB sp, sp, 8 
 	STR x30, [sp] 
 
-    	mov x0, x20
-	ADD	x0, x0, 400 //corre el inicio del pixel
+    mov x0, x20
+	
+	MOV	 x1, 400
+	BL	go_n_line
+
+	MOV	 x1, 250
+
+	BL	go_n_pixel 
 
 	mov x7, x0 // El pixel de inicio del hongo 
 
