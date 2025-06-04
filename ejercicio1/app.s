@@ -43,6 +43,65 @@ loop0:
 	mov x0 , x7 
  	bl make_hongo 
 
+	mov x1, 200
+
+	BL go_p_line
+
+	BL make_cloud
+
+	mov x1, 150
+
+	BL go_p_line
+
+	mov x1, 150
+
+	BL go_n_pixel
+
+	BL make_cloud
+
+	mov x1, 350
+
+	BL go_p_pixel
+
+	BL make_cloud
+
+	MOV	 x1, 100 
+
+	BL go_p_line
+
+	mov x1, 550
+
+	BL go_n_pixel
+
+	BL make_cloud
+
+	mov x1, 240
+
+	BL go_n_line
+
+	BL make_cloud
+
+	mov x1, 120
+
+	BL go_n_line
+
+	mov x1, 20
+
+	BL	go_n_pixel
+
+	BL	make_arbusto
+
+	mov x1, 5
+
+	BL go_p_line
+
+	mov x1, 605
+
+	BL	go_p_pixel
+
+	BL	make_arbusto
+
+
 
     mov x0, x20
     mov x1, 432
