@@ -1227,6 +1227,41 @@ make_castle:
 
 	BL horizontal_line 
 
+    MOV	x1, 25
+
+    BL go_p_line 
+
+    MOV	x1, 55
+
+    BL go_p_pixel
+
+    mov x2, 8
+
+	mov x3, 16
+
+	movz x4, 0x00, lsl 16	
+	movk x4, 0x0000, lsl 00 
+
+	BL horizontal_line 
+
+    MOV	x1, 16
+
+    BL go_p_line 
+
+    MOV	x1, 25
+
+    BL go_n_pixel
+
+    mov x2, 9
+
+	mov x3, 16
+
+	movz x4, 0x00, lsl 16	
+	movk x4, 0x0000, lsl 00 
+
+	BL horizontal_line 
+
+
 
     LDR	 x30,[sp]   
     ADD	 sp, sp, 8
