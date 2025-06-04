@@ -1261,6 +1261,76 @@ make_castle:
 
 	BL horizontal_line 
 
+    // Puertas
+
+    MOV	x1, 17
+
+    BL go_n_line 
+
+    MOV	x1, 12
+
+    BL go_p_pixel
+
+    mov x2, 6
+
+	mov x3, 1
+
+	movz x4, 0x00, lsl 16	
+	movk x4, 0x0000, lsl 00 
+
+    BL horizontal_line 
+
+    MOV	x1, 2
+
+    BL go_p_pixel
+
+    mov x2, 10
+
+	mov x3, 1
+
+	movz x4, 0x00, lsl 16	
+	movk x4, 0x0000, lsl 00 
+
+    BL horizontal_line 
+
+    MOV	x1, 1
+
+    BL go_p_pixel
+
+    mov x2, 12
+
+	mov x3, 1
+
+	movz x4, 0x00, lsl 16	
+	movk x4, 0x0000, lsl 00 
+
+    BL horizontal_line 
+
+    MOV	x1, 1
+
+    BL go_p_pixel
+
+    mov x2, 14
+
+	mov x3, 3
+
+	movz x4, 0x00, lsl 16	
+	movk x4, 0x0000, lsl 00 
+
+    BL horizontal_line 
+
+    MOV	x1, 1
+
+    BL go_p_pixel
+
+    mov x2, 16
+
+	mov x3, 26
+
+	movz x4, 0x00, lsl 16	
+	movk x4, 0x0000, lsl 00 
+
+    BL horizontal_line 
 
 
     LDR	 x30,[sp]   
