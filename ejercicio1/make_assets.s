@@ -1078,6 +1078,154 @@ make_castle:
 
 	BL horizontal_line
 
+        mov x1, 9
+
+    BL go_p_line
+
+    MOV	x1, 65
+
+    BL go_p_pixel 
+
+    mov x9, 1
+
+    BL make_block_castle_2   
+
+    mov x1, 41
+
+    BL go_p_line
+
+    mov x9, 1
+
+    BL make_block_castle_2
+
+    MOV	 x1, 6 
+
+    BL go_n_line
+
+    MOV	 x1, 82
+
+    BL go_p_pixel
+
+    mov x2, 3
+
+	mov x3, 1
+
+	movz x4, 0x99, lsl 16	
+	movk x4, 0x4E00, lsl 00 
+
+	BL horizontal_line
+
+    mov x2, 3
+
+	mov x3, 1
+
+	movz x4, 0x00, lsl 16	
+	movk x4, 0x0000, lsl 00 
+
+	BL horizontal_line
+    
+    MOV	 x1, 2 
+
+    BL go_p_line
+
+    MOV	x1, 11
+
+    BL go_n_pixel 
+
+    mov x2, 7
+
+	mov x3, 1
+
+	movz x4, 0x99, lsl 16	
+	movk x4, 0x4E00, lsl 00 
+
+	BL horizontal_line 
+
+    mov x2, 7
+
+	mov x3, 1
+
+	movz x4, 0x00, lsl 16	
+	movk x4, 0x0000, lsl 00 
+
+	BL horizontal_line 
+
+    MOV	 x1, 2 
+
+    BL go_p_line
+
+    MOV	x1, 15
+
+    BL go_n_pixel 
+
+    mov x2, 7
+
+	mov x3, 1
+
+	movz x4, 0x99, lsl 16	
+	movk x4, 0x4E00, lsl 00 
+
+	BL horizontal_line 
+
+    MOV	x1, 1
+
+    BL go_p_line
+
+    MOV	x1, 26
+
+    BL go_n_pixel 
+
+    mov x2, 7
+
+	mov x3, 1
+
+	movz x4, 0x99, lsl 16	
+	movk x4, 0x4E00, lsl 00 
+
+	BL horizontal_line 
+
+    MOV	 x1, 1 
+
+    BL go_p_line
+
+    MOV	x1, 15
+
+    BL go_n_pixel 
+
+    mov x2, 7
+
+	mov x3, 1
+
+	movz x4, 0x99, lsl 16	
+	movk x4, 0x4E00, lsl 00 
+
+	BL horizontal_line 
+
+    mov x2, 7
+
+	mov x3, 1
+
+	movz x4, 0x00, lsl 16	
+	movk x4, 0x0000, lsl 00 
+
+	BL horizontal_line 
+
+    mov x1, 1
+
+    BL go_p_line
+
+    mov x1, 15 
+
+    BL go_n_pixel
+
+    mov x2, 3
+
+	mov x3, 1
+
+	movz x4, 0x00, lsl 16	
+	movk x4, 0x0000, lsl 00 
+
+	BL horizontal_line 
 
 
     LDR	 x30,[sp]   
