@@ -44,6 +44,20 @@ loop0:
  	bl make_hongo 
 
 
+    mov x0, x20
+    mov x1, 432
+    bl go_n_line
+    bl make_floor
+
+    mov x0, x20
+    mov x1, 304
+    bl go_n_line
+
+    mov x1, 128
+    bl go_n_pixel
+    bl make_block_ramp
+
+
 	// Ejemplo de uso de gpios
 	mov x9, GPIO_BASE
 
