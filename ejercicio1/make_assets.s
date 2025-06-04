@@ -1318,4 +1318,52 @@ make_floor_block:
     add sp, sp, 16
     ret
 
+.globl make_floor
+make_floor:
+    sub sp, sp, 32
+    str x30, [sp]
 
+    mov x9, 40
+    bl make_n_blocks_floor
+    mov x9, 40
+    bl make_n_blocks_floor
+    mov x9, 40
+    bl make_n_blocks_floor
+
+    ldr x30, [sp]
+    add sp, sp, 32
+    ret
+
+make_n_blocks_floor:
+    sub sp, sp, 32
+    str x30, [sp]
+
+    // Dirección base del framebuffer
+    mov x11, x0
+    str x11, [sp, 8]
+    str x9, [sp, 16]
+    str x11, [sp, 24]
+
+    loop_floor:
+        bl make_floor_block
+
+        ldr x0, [sp, 24]
+        mov x1, 16
+        bl go_n_pixel
+
+        str x0, [sp, 24]
+
+        ldr x9, [sp, 16]
+        sub x9, x9, 1
+        str x9, [sp, 16]
+
+        cbnz x9, loop_floor
+
+    ldr x0, [sp, 8]
+    mov x1, 16
+    bl go_n_line
+
+    ldr x30, [sp]
+    add sp, sp, 32
+    ret
+    
