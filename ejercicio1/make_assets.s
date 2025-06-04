@@ -1619,4 +1619,629 @@ make_n_blocks_floor:
     ldr x30, [sp]
     add sp, sp, 32
     ret
+    .globl make_cloud
+make_cloud:
+    sub sp, sp, 16
+    str x30, [sp]
+    str x0, [sp, 8]
+
+    movz x4, 0x00, lsl 00
+
+    mov x2, 4
+    mov x3, 1
+    bl horizontal_line
     
+    mov x1, 1
+    bl go_p_pixel
+
+    mov x2, 6
+    bl horizontal_line
+
+    mov x1, 2
+    bl go_p_pixel
+
+    mov x2, 9
+    bl horizontal_line
+
+    mov x1, 1
+    bl go_p_pixel
+
+    mov x2, 10
+    bl horizontal_line
+
+    mov x2, 11
+    bl horizontal_line
+
+    mov x2, 14
+    bl horizontal_line
+
+    bl go_p_pixel
+
+    mov x2, 15
+    bl horizontal_line
+
+    bl go_p_pixel
+
+    mov x2, 16
+    bl horizontal_line
+
+    mov x1, 3
+    bl go_p_pixel
+
+    mov x2, 19
+    bl horizontal_line
+
+    mov x1, 1
+    bl go_p_pixel
+
+    mov x2, 21
+    bl horizontal_line
+
+    bl go_p_pixel
+
+    mov x2, 26
+    bl horizontal_line
+    bl horizontal_line
+
+    mov x1, 2
+    bl go_p_pixel
+
+    mov x2, 32
+    mov x3, 2
+    bl horizontal_line
+
+    mov x1, 1
+    bl go_n_pixel
+
+    mov x2, 30
+    mov x3, 1
+    bl horizontal_line
+
+    bl go_n_pixel
+
+    mov x2, 28
+    bl horizontal_line
+
+    bl go_n_pixel
+    
+    bl horizontal_line
+
+    bl go_n_pixel
+
+    bl horizontal_line
+
+    bl horizontal_line
+
+    bl go_n_pixel
+
+    mov x2, 26
+    bl horizontal_line
+
+    mov x1, 3
+    bl go_n_pixel
+
+    mov x2, 21
+    bl horizontal_line
+
+    mov x1, 1
+    bl go_n_pixel
+
+    mov x2, 6
+    bl horizontal_line
+
+    mov x1, 1
+    bl go_p_line
+    mov x1, 7
+    bl go_n_pixel
+
+    mov x2, 8
+    bl horizontal_line
+
+    mov x1, 2
+    bl go_n_pixel
+
+    mov x2, 4
+    bl horizontal_line
+
+    mov x1, 2
+    bl go_p_line
+
+    mov x1, 7
+    bl go_n_pixel
+
+    mov x2, 2
+    bl horizontal_line
+
+    // restore the initial cloud pixel.
+    ldr x0, [sp, 8]
+
+    movz x4, 0xff, lsl 16
+    movk x4, 0xffff, lsl 00
+
+    mov x1, 1
+    bl go_n_line
+
+    mov x2, 4
+    mov x3, 1
+    bl horizontal_line
+
+    bl go_p_pixel
+
+    mov x2, 6
+    bl horizontal_line
+
+    mov x1, 2
+    bl go_p_pixel
+
+    mov x2, 8
+    bl horizontal_line
+
+    mov x2, 9
+    bl horizontal_line
+
+    mov x2, 12
+    bl horizontal_line
+
+    mov x1, 1
+    bl go_p_pixel
+
+    mov x2, 13
+    bl horizontal_line
+
+    bl go_p_pixel
+
+    mov x2, 14
+    bl horizontal_line
+
+    bl go_p_pixel
+
+    mov x2, 16
+    bl horizontal_line
+
+    mov x1, 3
+    bl go_p_pixel
+
+    mov x2, 19
+    bl horizontal_line
+
+    mov x1, 1
+    bl go_p_pixel
+
+    mov x2, 21
+    bl horizontal_line
+
+    bl go_p_pixel
+
+    mov x2, 25
+    bl horizontal_line
+
+    mov x2, 26
+    bl horizontal_line
+
+    mov x1, 1
+    bl go_p_pixel
+
+    mov x2, 30
+    mov x3, 1
+    bl horizontal_line
+
+    mov x1, 1
+    bl go_n_pixel
+
+    mov x2, 28
+    mov x3, 1
+    bl horizontal_line
+
+    bl go_n_pixel
+
+    mov x2, 26
+    bl horizontal_line
+
+    bl go_n_pixel
+
+    bl horizontal_line
+
+    bl go_n_pixel
+
+    mov x3, 2
+    bl horizontal_line
+
+    mov x1, 3
+    bl go_n_pixel
+
+    mov x2, 21
+    mov x3, 1
+    bl horizontal_line
+
+    mov x1, 1
+    bl go_n_pixel
+
+    mov x2, 6
+    bl horizontal_line
+
+    mov x1, 1
+    bl go_p_line
+
+    mov x1, 7
+    bl go_n_pixel
+
+    mov x2, 8
+    bl horizontal_line
+
+    mov x1, 2
+    bl go_n_pixel
+
+    mov x2, 4
+    bl horizontal_line
+
+    bl go_p_line
+
+    mov x1, 7
+    bl go_n_pixel
+
+    mov x2, 1
+    bl horizontal_line
+
+    // go to initial pixel
+    ldr x0, [sp, 8]
+
+    #76aaff
+    movz x4, 0x76, lsl 16
+    movk x4, 0xaaff, lsl 00
+
+    mov x1, 5
+    bl go_n_line
+    mov x1, 3
+    bl go_n_pixel
+
+    mov x2, 1
+    mov x3, 1
+    bl horizontal_line
+
+    mov x1, 1
+    bl go_n_pixel
+
+    bl horizontal_line
+
+    mov x1, 5
+    bl go_p_pixel
+    mov x1, 1
+    bl go_p_line
+
+    mov x2, 2
+    bl horizontal_line
+
+    mov x1, 1
+    bl go_p_pixel
+
+    mov x2, 1
+    bl horizontal_line
+
+    mov x1, 5
+    bl go_n_line
+    mov x1, 4
+    bl go_p_pixel
+
+    mov x2, 1
+    bl horizontal_line
+
+    mov x1, 1
+    bl go_n_pixel
+
+    bl horizontal_line
+
+    bl go_n_pixel
+
+    mov x2, 4
+    bl horizontal_line
+
+    mov x1, 3
+    bl go_n_pixel
+
+    mov x2, 12
+    bl horizontal_line
+
+    mov x1, 2
+    bl go_n_pixel
+
+    mov x2, 2
+    bl horizontal_line
+
+    mov x1, 1
+    bl go_p_line
+
+    mov x1, 6
+    bl go_n_pixel
+
+    mov x2, 3
+    bl horizontal_line
+
+    ldr x0, [sp, 8]
+
+    mov x1, 14
+    bl go_n_line
+    mov x1, 3
+    bl go_p_pixel
+
+    mov x2, 1
+    bl horizontal_line
+
+    ldr x30, [sp]
+    ret
+    
+.globl make_arbusto
+make_arbusto:
+    sub sp, sp, 16
+    str x30, [sp]
+    str x0, [sp, 8]
+    #219700
+    movz x4, 0x00, lsl 00
+
+    mov x2, 4
+    mov x3, 1
+    bl horizontal_line
+    
+    mov x1, 1
+    bl go_p_pixel
+
+    mov x2, 6
+    bl horizontal_line
+
+    mov x1, 2
+    bl go_p_pixel
+
+    mov x2, 9
+    bl horizontal_line
+
+    mov x1, 1
+    bl go_p_pixel
+
+    mov x2, 10
+    bl horizontal_line
+
+    mov x2, 11
+    bl horizontal_line
+
+    mov x2, 14
+    bl horizontal_line
+
+    bl go_p_pixel
+
+    mov x2, 15
+    bl horizontal_line
+
+    bl go_p_pixel
+
+    mov x2, 16
+    bl horizontal_line
+
+    mov x1, 3
+    bl go_p_pixel
+
+    mov x2, 19
+    bl horizontal_line
+
+    mov x1, 1
+    bl go_p_pixel
+
+    mov x2, 21
+    bl horizontal_line
+
+    bl go_p_pixel
+
+    mov x2, 26
+    bl horizontal_line
+    bl horizontal_line
+
+    mov x1, 2
+    bl go_p_pixel
+
+    mov x2, 32
+    mov x3, 2
+    bl horizontal_line
+
+    mov x1, 1
+    bl go_n_pixel
+
+    mov x2, 30
+    mov x3, 1
+    bl horizontal_line
+
+    bl go_n_pixel
+
+    mov x2, 28
+    bl horizontal_line
+
+    bl go_n_pixel
+    
+    bl horizontal_line
+
+    bl go_n_pixel
+
+    bl horizontal_line
+
+    bl horizontal_line
+
+    bl go_n_pixel
+
+    mov x2, 26
+    bl horizontal_line
+
+    mov x1, 3
+    bl go_n_pixel
+
+    mov x2, 21
+    bl horizontal_line
+
+    mov x1, 1
+    bl go_n_pixel
+
+    mov x2, 6
+    bl horizontal_line
+
+    mov x1, 1
+    bl go_p_line
+    mov x1, 7
+    bl go_n_pixel
+
+    mov x2, 8
+    bl horizontal_line
+
+    mov x1, 2
+    bl go_n_pixel
+
+    mov x2, 4
+    bl horizontal_line
+
+    mov x1, 2
+    bl go_p_line
+
+    mov x1, 7
+    bl go_n_pixel
+
+    mov x2, 2
+    bl horizontal_line
+
+    // restore the initial cloud pixel.
+    ldr x0, [sp, 8]
+
+    movz x4, 0x21, lsl 16
+    movk x4, 0x9700, lsl 00
+
+    mov x1, 1
+    bl go_n_line
+
+    mov x2, 4
+    mov x3, 1
+    bl horizontal_line
+
+    bl go_p_pixel
+
+    mov x2, 6
+    bl horizontal_line
+
+    mov x1, 2
+    bl go_p_pixel
+
+    mov x2, 8
+    bl horizontal_line
+
+    mov x2, 9
+    bl horizontal_line
+
+    mov x2, 12
+    bl horizontal_line
+
+    mov x1, 1
+    bl go_p_pixel
+
+    mov x2, 13
+    bl horizontal_line
+
+    bl go_p_pixel
+
+    mov x2, 14
+    bl horizontal_line
+
+    bl go_p_pixel
+
+    mov x2, 16
+    bl horizontal_line
+
+    mov x1, 3
+    bl go_p_pixel
+
+    mov x2, 19
+    bl horizontal_line
+
+    mov x1, 1
+    bl go_p_pixel
+
+    mov x2, 21
+    bl horizontal_line
+
+    bl go_p_pixel
+
+    mov x2, 25
+    bl horizontal_line
+
+    mov x2, 26
+    bl horizontal_line
+
+    mov x1, 1
+    bl go_p_pixel
+
+    mov x2, 30
+    mov x3, 1
+    bl horizontal_line
+
+    mov x1, 1
+    bl go_n_pixel
+
+    mov x2, 28
+    mov x3, 1
+    bl horizontal_line
+
+    bl go_n_pixel
+
+    mov x2, 26
+    bl horizontal_line
+
+    bl go_n_pixel
+
+    bl horizontal_line
+
+    bl go_n_pixel
+
+    mov x3, 2
+    bl horizontal_line
+
+    mov x1, 3
+    bl go_n_pixel
+
+    mov x2, 21
+    mov x3, 1
+    bl horizontal_line
+
+    mov x1, 1
+    bl go_n_pixel
+
+    mov x2, 6
+    bl horizontal_line
+
+    mov x1, 1
+    bl go_p_line
+
+    mov x1, 7
+    bl go_n_pixel
+
+    mov x2, 8
+    bl horizontal_line
+
+    mov x1, 2
+    bl go_n_pixel
+
+    mov x2, 4
+    bl horizontal_line
+
+    bl go_p_line
+
+    mov x1, 7
+    bl go_n_pixel
+
+    mov x2, 1
+    bl horizontal_line
+
+    // go to initial pixel
+    ldr x0, [sp, 8]
+
+    #76aaff
+    movz x4, 0x00, lsl 00
+
+    mov x1, 5
+    bl go_n_line
+    mov x1, 3
+    bl go_n_pixel
+
+    ldr x30, [sp]
+    ret
