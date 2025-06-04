@@ -604,3 +604,279 @@ make_castle:
 
     RET
 
+
+.globl make_block_castle_2
+make_block_castle_2:
+
+    SUB	 sp, sp, 8 
+    STR	 x30,[sp]
+
+	mov x1, 40 
+
+	BL	go_n_line
+
+	mov x2, 4
+
+	mov x3, 7
+
+	movz x4, 0x99, lsl 16	
+	movk x4, 0x4E00, lsl 00 
+
+	BL horizontal_line
+
+	MOV	x1, 7
+
+	BL go_p_line
+
+
+	mov x2, 4
+
+	mov x3, 1
+
+	movz x4, 0xFF, lsl 16	
+	movk x4, 0xCCC5, lsl 00 
+
+	BL horizontal_line
+
+	MOV	x1, 3
+
+	BL go_n_pixel
+
+
+	mov x2, 1
+
+	mov x3, 7
+
+	movz x4, 0xFF, lsl 16	
+	movk x4, 0xCCC5, lsl 00 
+
+	BL horizontal_line
+
+	mov x2, 7
+
+	mov x3, 1
+
+	movz x4, 0xFF, lsl 16	
+	movk x4, 0xCCC5, lsl 00 
+
+	BL horizontal_line
+
+	MOV	x1, 9
+
+	BL go_p_line
+
+	MOV	x1, 7
+
+	BL go_n_pixel
+
+	mov x2, 1
+
+	mov x3, 9
+
+	movz x4, 0xFF, lsl 16	
+	movk x4, 0xCCC5, lsl 00 
+
+	BL horizontal_line	
+
+	MOV	x1, 9
+
+	BL go_p_line
+
+	MOV	x1, 1
+
+	BL go_n_pixel
+
+	mov x2, 7
+
+	mov x3, 7
+
+	movz x4, 0x99, lsl 16	
+	movk x4, 0x4E00, lsl 00 
+
+	BL horizontal_line
+
+	MOV	x1, 7
+
+	BL go_p_line
+
+	MOV	x1, 1
+
+	BL go_p_pixel
+
+	mov x2, 8
+
+	mov x3, 1
+
+	movz x4, 0xFF, lsl 16	
+	movk x4, 0xCCC5, lsl 00 
+
+	BL horizontal_line	
+
+	MOV	x1, 1
+
+	BL go_p_line
+
+	MOV	x1, 8 
+
+	BL go_n_pixel
+
+	mov x2, 1
+
+	mov x3, 9
+
+	movz x4, 0xFF, lsl 16	
+	movk x4, 0xCCC5, lsl 00 
+
+	BL horizontal_line	
+
+	//Prueba
+
+	MOV	x1, 1 
+
+	BL	go_p_line
+
+	mov x2, 7
+
+	mov x3, 1
+
+	movz x4, 0xFF, lsl 16	
+	movk x4, 0xCCC5, lsl 00 
+
+	BL horizontal_line
+
+	MOV	x1, 9
+
+	BL go_p_line
+
+	MOV	x1, 7
+
+	BL go_n_pixel
+
+	mov x2, 1
+
+	mov x3, 9
+
+	movz x4, 0xFF, lsl 16	
+	movk x4, 0xCCC5, lsl 00 
+
+	BL horizontal_line	
+
+	MOV	x1, 9
+
+	BL go_p_line
+
+	MOV	x1, 1
+
+	BL go_n_pixel
+
+	mov x2, 7
+
+	mov x3, 7
+
+	movz x4, 0x99, lsl 16	
+	movk x4, 0x4E00, lsl 00 
+
+	BL horizontal_line
+
+	MOV	x1, 7
+
+	BL go_p_line
+
+	MOV	x1, 1
+
+	BL go_p_pixel
+
+	mov x2, 8
+
+	mov x3, 1
+
+	movz x4, 0xFF, lsl 16	
+	movk x4, 0xCCC5, lsl 00 
+
+	BL horizontal_line	
+
+	MOV	x1, 1
+
+	BL go_p_line
+
+	MOV	x1, 8 
+
+	BL go_n_pixel
+
+	mov x2, 1
+
+	mov x3, 9
+
+	movz x4, 0xFF, lsl 16	
+	movk x4, 0xCCC5, lsl 00 
+
+	BL horizontal_line
+
+	MOV	x1, 1
+
+	BL go_p_line
+
+	mov x2, 7
+
+	mov x3, 1
+
+	movz x4, 0xFF, lsl 16	
+	movk x4, 0xCCC5, lsl 00 
+
+	BL horizontal_line
+
+	MOV	x1, 8
+
+	BL go_p_line
+
+	MOV	x1, 8 
+
+	BL go_n_pixel
+
+	mov x2, 3
+
+	mov x3, 7
+
+	movz x4, 0x99, lsl 16	
+	movk x4, 0x4E00, lsl 00 
+
+	BL horizontal_line
+
+	MOV	x1, 8
+
+	BL go_p_line
+
+	MOV	x1,1 
+
+	BL go_p_pixel
+
+	mov x2, 1
+
+	mov x3, 9
+
+	movz x4, 0xFF, lsl 16	
+	movk x4, 0xCCC5, lsl 00 
+
+	BL horizontal_line
+
+	MOV	x1, 9
+
+	BL go_p_line
+
+	MOV	x1,1 
+
+	BL go_n_pixel
+
+	mov x2, 3
+
+	mov x3, 1
+
+	movz x4, 0xFF, lsl 16	
+	movk x4, 0xCCC5, lsl 00 
+
+	BL horizontal_line
+
+    LDR	 x30,[sp]   
+    ADD	 sp, sp, 8
+
+    RET

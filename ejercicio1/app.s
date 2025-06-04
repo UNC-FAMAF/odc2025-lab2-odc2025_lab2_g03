@@ -43,7 +43,6 @@ loop0:
 	mov x0 , x7 
  	bl make_hongo 
 
-	
 
 	// Ejemplo de uso de gpios
 	mov x9, GPIO_BASE
