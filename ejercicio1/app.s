@@ -31,10 +31,10 @@ loop0:
 	cbnz x2,loop1  // Si no es la última fila, salto
 
     mov x0, x20
-	mov x1, 300
-    bl go_n_pixel
-    mov x1, 200
+	mov x1, 360
 	bl go_n_line
+    mov x1, 550
+    bl go_n_pixel
     bl make_castle
 
 	mov x0, x19         // Restaurar x0 para make_mario
@@ -56,7 +56,6 @@ loop0:
     mov x1, 128
     bl go_n_pixel
     bl make_block_ramp
-
 
 	// Ejemplo de uso de gpios
 	mov x9, GPIO_BASE
