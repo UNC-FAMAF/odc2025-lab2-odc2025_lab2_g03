@@ -103,6 +103,12 @@ loop0:
 
 	bl make_mastil
 
+	MOV	 x1, 106
+
+	BL go_n_line 
+
+	BL make_block
+
     mov x0, x20
     mov x1, 432
     bl go_n_line
