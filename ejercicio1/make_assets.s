@@ -2257,6 +2257,10 @@ make_mastil:
 
 	BL go_n_line
 
+    MOV	 x1, 180
+
+    BL go_n_pixel 
+
 	mov x1 , 20
 	BL go_n_line	  
 	mov x1 , 320
