@@ -2245,3 +2245,483 @@ make_arbusto:
 
     ldr x30, [sp]
     ret
+
+.globl make_mastil
+make_mastil:
+
+    SUB     sp, sp, 8 
+    STR     x30,[sp]
+    mov x0, x20 
+	mov x1 , 20
+	BL go_n_line	  
+	mov x1 , 320
+	BL go_n_pixel 
+		  	     
+	mov x2, 4
+	mov x3, 1
+	#000000
+	movz x4, 0x00, lsl 16	//Colores Fondo
+	movk x4, 0x0000, lsl 00 //Colores Fondo Ambos se combina
+
+	BL horizontal_line
+	mov x1 ,1
+	BL go_p_pixel 
+	mov x2 ,6
+	mov x3 ,1 
+	movz x4, 0x21, lsl 16	//Colores Fondo
+	movk x4, 0x8d00, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line  
+
+	mov x1 , 1 
+	BL go_p_pixel
+	mov x2 , 8
+	mov x3 , 4
+	movz x4, 0x21, lsl 16	//Colores Fondo
+	movk x4, 0x8d00, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line 
+
+	mov x1 , 1 
+	BL go_n_pixel
+	mov x2 , 6
+	mov x3 , 1
+	movz x4, 0x21, lsl 16	//Colores Fondo
+	movk x4, 0x8d00, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line 
+
+	mov x1 , 1 
+	BL go_n_pixel 
+	mov x2 ,4 
+	mov x1 , 1 
+	movz x4, 0x00, lsl 16	//Colores Fondo
+	movk x4, 0x0000, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line 
+
+	mov x1 , 1
+	BL go_n_pixel 
+	mov x2 , 2 
+	mov x3 , 1
+	movz x4, 0x86, lsl 16	//Colores Fondo
+	movk x4, 0xde00, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line 
+
+	mov x1 , 8
+	BL go_p_line 
+	mov x1 ,2
+	Bl go_p_pixel
+	
+	mov x2, 1
+	mov x3, 1
+	#000000
+	movz x4, 0x00, lsl 16	//Colores Fondo
+	movk x4, 0x0000, lsl 00 //Colores Fondo Ambos se combina
+
+	BL horizontal_line
+
+ 	mov x1 , 1
+	Bl go_p_pixel
+	mov x2, 1
+	mov x3, 4
+	#000000
+	movz x4, 0x00, lsl 16	//Colores Fondo
+	movk x4, 0x0000, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+
+	mov x1 , 1
+	Bl go_n_pixel
+	mov x2, 1
+	mov x3, 1
+	#000000
+	movz x4, 0x00, lsl 16	//Colores Fondo
+	movk x4, 0x0000, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x1 ,1 
+	BL go_p_line
+	mov x1 , 5 
+	BL go_n_pixel
+	mov x2 ,1 
+	mov x3 ,1
+	movz x4, 0x00, lsl 16	//Colores Fondo
+	movk x4, 0x0000, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x1 ,5
+	BL go_p_line
+	mov x1 ,1 
+	BL go_n_pixel
+	mov x2 ,1 
+	mov x3 ,4
+	movz x4, 0x00, lsl 16	//Colores Fondo
+	movk x4, 0x0000, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	
+	mov x1 ,5
+	BL go_p_line
+	mov x1 ,1 
+	Bl go_p_pixel
+	mov x2 ,1 
+	mov x3 ,1
+	movz x4, 0x00, lsl 16	//Colores Fondo
+	movk x4, 0x0000, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	//bandera
+	mov x1 ,8 
+	BL go_n_line 
+    mov x1 , 26 
+	BL go_p_pixel 
+	mov x2 ,24
+	mov x3 ,1
+	movz x4, 0xff, lsl 16	//Colores Fondo
+	movk x4, 0xffff, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line  
+	//mastil
+	mov x1 , 3 
+	BL go_p_line
+	mov x1 , 23
+	BL go_n_pixel 
+	mov x2 ,2
+	mov x3 ,144
+	movz x4, 0x86, lsl 16	//Colores Fondo
+	movk x4, 0xde00, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x1 , 142 
+	BL go_p_line 
+	mov x2 ,1
+	mov x3 ,30
+	movz x4, 0xff, lsl 16	//Colores Fondo
+	movk x4, 0xffff, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line  
+	 mov x1 , 23 
+	BL go_p_pixel 
+	mov x2 ,1
+	mov x3 ,1
+	movz x4, 0x92, lsl 16	//Colores Fondo
+	movk x4, 0x91ff, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x1 , 30 
+	Bl go_p_line 
+	mov x1 , 1 
+	BL go_n_pixel 
+	mov x2 ,22
+	mov x3 ,1
+	movz x4, 0xff, lsl 16	//Colores Fondo
+	movk x4, 0xffff, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	
+	mov x1 , 1 
+	BL go_n_pixel 
+	mov x2 ,22
+	mov x3 ,1
+	movz x4, 0xff, lsl 16	//Colores Fondo
+	movk x4, 0xffff, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x1 , 1 
+	BL go_n_pixel 
+	mov x2 ,20
+	mov x3 ,1
+	movz x4, 0xff, lsl 16	//Colores Fondo
+	movk x4, 0xffff, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x1 , 1 
+	BL go_n_pixel 
+	mov x2 ,20
+	mov x3 ,1
+	movz x4, 0xff, lsl 16	//Colores Fondo
+	movk x4, 0xffff, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line	
+	mov x1 , 1 
+	BL go_n_pixel 
+	mov x2 ,18
+	mov x3 ,1
+	movz x4, 0xff, lsl 16	//Colores Fondo
+	movk x4, 0xffff, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x1 , 1 
+	BL go_n_pixel 
+	mov x2 ,18
+	mov x3 ,1
+	movz x4, 0xff, lsl 16	//Colores Fondo
+	movk x4, 0xffff, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x1 , 1 
+	BL go_n_pixel 
+	mov x2 ,16
+	mov x3 ,1
+	movz x4, 0xff, lsl 16	//Colores Fondo
+	movk x4, 0xffff, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x1 , 1 
+	BL go_n_pixel 
+	mov x2 ,16
+	mov x3 ,1
+	movz x4, 0xff, lsl 16	//Colores Fondo
+	movk x4, 0xffff, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x1 , 1 
+	BL go_n_pixel 
+	mov x2 ,14
+	mov x3 ,1
+	movz x4, 0xff, lsl 16	//Colores Fondo
+	movk x4, 0xffff, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+
+	mov x1 , 1 
+	BL go_n_pixel 
+	mov x2 ,14
+	mov x3 ,1
+	movz x4, 0xff, lsl 16	//Colores Fondo
+	movk x4, 0xffff, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x1 , 1 
+	BL go_n_pixel 
+	mov x2 ,12
+	mov x3 ,1
+	movz x4, 0xff, lsl 16	//Colores Fondo
+	movk x4, 0xffff, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x1 , 1 
+	BL go_n_pixel 
+	mov x2 ,12
+	mov x3 ,1
+	movz x4, 0xff, lsl 16	//Colores Fondo
+	movk x4, 0xffff, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x1 , 1 
+	BL go_n_pixel 
+	mov x2 ,10
+	mov x3 ,1
+	movz x4, 0xff, lsl 16	//Colores Fondo
+	movk x4, 0xffff, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x1 , 1 
+	BL go_n_pixel 
+	mov x2 ,10
+	mov x3 ,1
+	movz x4, 0xff, lsl 16	//Colores Fondo
+	movk x4, 0xffff, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x1 , 1 
+	BL go_n_pixel 
+	mov x2 ,8
+	mov x3 ,16
+	movz x4, 0xff, lsl 16	//Colores Fondo
+	movk x4, 0xffff, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+    mov x1 , 29 
+	BL go_p_line 
+	mov x1 , 8 
+	Bl go_p_pixel
+	mov x2 ,1
+	mov x3 ,4
+	movz x4, 0x00, lsl 16	//Colores Fondo
+	movk x4, 0x0000, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x1 , 1 
+	Bl go_p_line 
+	mov x1 , 1 
+	BL go_n_pixel 
+	mov x2 ,3
+	mov x3 ,1
+	movz x4, 0x00, lsl 16	//Colores Fondo
+	movk x4, 0x0000, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x1 , 5
+	Bl go_p_line 
+	mov x1 , 1 
+	BL go_p_pixel 
+	mov x2 ,4
+	mov x3 ,1
+	movz x4, 0x00, lsl 16	//Colores Fondo
+	movk x4, 0x0000, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x1 , 3
+	BL go_n_pixel
+	mov x2 ,1
+	mov x3 ,3
+	movz x4, 0x00, lsl 16	//Colores Fondo
+	movk x4, 0x0000, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line 
+	mov x1 ,4
+	BL go_p_line 
+	mov x1 , 2
+	Bl go_n_pixel
+	mov x2 ,1
+	mov x3 ,5
+	movz x4, 0x00, lsl 16	//Colores Fondo
+	movk x4, 0x0000, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x1 , 1
+	BL go_p_line 
+	mov x2 ,3
+	mov x3 ,1
+	movz x4, 0x00, lsl 16	//Colores Fondo
+	movk x4, 0x0000, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x1 , 5
+	BL go_p_line 
+	mov x2 ,3
+	mov x3 ,1
+	movz x4, 0x00, lsl 16	//Colores Fondo
+	movk x4, 0x0000, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x1 , 3
+	BL go_n_pixel 
+	mov x2 ,1
+	mov x3 ,3
+	movz x4, 0x00, lsl 16	//Colores Fondo
+	movk x4, 0x0000, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x1 ,4
+	BL go_p_line 
+	mov x1 , 2
+	Bl go_n_pixel
+	mov x2 ,1
+	mov x3 ,5
+	movz x4, 0x00, lsl 16	//Colores Fondo
+	movk x4, 0x0000, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x1 , 1
+	BL go_p_line 
+	mov x2 ,4
+	mov x3 ,1
+	movz x4, 0x00, lsl 16	//Colores Fondo
+	movk x4, 0x0000, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x1 , 5
+	BL go_p_line 
+	mov x2 ,4
+	mov x3 ,1
+	movz x4, 0x00, lsl 16	//Colores Fondo
+	movk x4, 0x0000, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	//2
+	mov x1 ,5 
+	BL go_n_line
+	mov x2 ,3
+	mov x3 ,1
+	movz x4, 0x86, lsl 16	//Colores Fondo
+	movk x4, 0xde00, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x1 , 2 
+	BL go_n_pixel 
+	mov x2 ,1
+	mov x3 ,1
+	movz x4, 0x86, lsl 16	//Colores Fondo
+	movk x4, 0xde00, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x1 , 2
+	BL go_p_pixel 
+	mov x2 ,3
+	mov x3 ,1
+	movz x4, 0x86, lsl 16	//Colores Fondo
+	movk x4, 0xde00, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x2 ,1
+	mov x3 ,1
+	movz x4, 0x86, lsl 16	//Colores Fondo
+	movk x4, 0xde00, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x2 ,3
+	mov x3 ,1
+	movz x4, 0x86, lsl 16	//Colores Fondo
+	movk x4, 0xde00, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line 
+	mov x1 ,1
+	BL go_n_line 
+	mov x2 ,3
+	mov x3 ,1
+	movz x4, 0x86, lsl 16	//Colores Fondo
+	movk x4, 0xde00, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x2 ,1
+	mov x3 ,3
+	movz x4, 0x86, lsl 16	//Colores Fondo
+	movk x4, 0xde00, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x2 ,3
+	mov x3 ,1
+	movz x4, 0x86, lsl 16	//Colores Fondo
+	movk x4, 0xde00, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x1 , 5
+	BL go_p_line 
+	mov x1,2
+	BL go_n_pixel
+	mov x2 ,1
+	mov x3 ,5
+	movz x4, 0x86, lsl 16	//Colores Fondo
+	movk x4, 0xde00, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	//2
+	mov x1 ,1
+	BL go_n_line
+	mov x1 , 2 
+	BL go_p_pixel 
+	mov x2 ,3
+	mov x3 ,1
+	movz x4, 0x86, lsl 16	//Colores Fondo
+	movk x4, 0xde00, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x1 , 2 
+	BL go_n_pixel 
+	mov x2 ,1
+	mov x3 ,1
+	movz x4, 0x86, lsl 16	//Colores Fondo
+	movk x4, 0xde00, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x1 , 2
+	BL go_p_pixel 
+	mov x2 ,3
+	mov x3 ,1
+	movz x4, 0x86, lsl 16	//Colores Fondo
+	movk x4, 0xde00, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x2 ,1
+	mov x3 ,1
+	movz x4, 0x86, lsl 16	//Colores Fondo
+	movk x4, 0xde00, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x2 ,3
+	mov x3 ,1
+	movz x4, 0x86, lsl 16	//Colores Fondo
+	movk x4, 0xde00, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line 
+	//5
+	mov x1 ,1
+	BL go_n_line 
+	mov x2 ,3
+	mov x3 ,1
+	movz x4, 0x86, lsl 16	//Colores Fondo
+	movk x4, 0xde00, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x2 ,1
+	mov x3 ,1
+	movz x4, 0x86, lsl 16	//Colores Fondo
+	movk x4, 0xde00, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x2 ,3
+	mov x3 ,1
+	movz x4, 0x86, lsl 16	//Colores Fondo
+	movk x4, 0xde00, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x1 ,2
+	BL go_n_pixel
+	mov x2 ,1
+	mov x3 ,2
+	movz x4, 0x86, lsl 16	//Colores Fondo
+	movk x4, 0xde00, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+	mov x1 , 1
+	BL go_p_line 
+	mov x1,2
+	BL go_p_pixel
+	mov x2 ,3
+	mov x3 ,1
+	movz x4, 0x86, lsl 16	//Colores Fondo
+	movk x4, 0xde00, lsl 00 //Colores Fondo Ambos se combina
+	BL horizontal_line
+    
+    LDR     x30,[sp]
+    ADD     sp, sp, 8
+
+    RET
+
+    

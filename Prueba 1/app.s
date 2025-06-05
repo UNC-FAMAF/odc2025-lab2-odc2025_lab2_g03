@@ -12,12 +12,13 @@ main:
 	// x0 contiene la direccion base del framebuffer
  	mov x20, x0	// Guarda la dirección base del framebuffer en x20
 	//---------------- CODE HERE ------------------------------------
+	movz x10,0x,lsl 00
+	stur w10, [x0]
+	add x0,x0, 0
 
-    #9291ff -- purple
+	movz x10, 0x00, lsl 16	//Colores Fondo
+	movk x10, 0x0000, lsl 00 //Colores Fondo Ambos se combina
 
-
-	movz x10, 0x92, lsl 16
-	movk x10, 0x91ff, lsl 00
 
 	mov x2, SCREEN_HEIGH         // Y Size
 loop1:
@@ -30,91 +31,15 @@ loop0:
 	sub x2,x2,1	   // Decrementar contador Y
 	cbnz x2,loop1  // Si no es la última fila, salto
 
-    mov x0, x20
-	mov x1, 360
-	bl go_n_line
-    mov x1, 550
-    bl go_n_pixel
-    bl make_castle
+	mov x0, x19 
+    BL make_hongo
+	
 
-	mov x0, x19         // Restaurar x0 para make_mario
-	BL make_mario      // Llamada a la función make_mario
+	
 
-	mov x0 , x7 
- 	bl make_hongo 
 
-	mov x1, 200
 
-	BL go_p_line
 
-	BL make_cloud
-
-	mov x1, 150
-
-	BL go_p_line
-
-	mov x1, 150
-
-	BL go_n_pixel
-
-	BL make_cloud
-
-	mov x1, 350
-
-	BL go_p_pixel
-
-	BL make_cloud
-
-	MOV	 x1, 100 
-
-	BL go_p_line
-
-	mov x1, 550
-
-	BL go_n_pixel
-
-	BL make_cloud
-
-	mov x1, 240
-
-	BL go_n_line
-
-	BL make_cloud
-
-	mov x1, 120
-
-	BL go_n_line
-
-	mov x1, 20
-
-	BL	go_n_pixel
-
-	BL	make_arbusto
-
-	mov x1, 5
-
-	BL go_p_line
-
-	mov x1, 605
-
-	BL	go_p_pixel
-
-	BL	make_arbusto
-
-	bl make_mastil
-
-    mov x0, x20
-    mov x1, 432
-    bl go_n_line
-    bl make_floor
-
-    mov x0, x20
-    mov x1, 304
-    bl go_n_line
-
-    mov x1, 128
-    bl go_n_pixel
-    bl make_block_ramp
 
 
 	// Ejemplo de uso de gpios
@@ -141,3 +66,5 @@ loop0:
 
 InfLoop:
 	b InfLoop
+
+
