@@ -2251,7 +2251,12 @@ make_mastil:
 
     SUB     sp, sp, 8 
     STR     x30,[sp]
-    mov x0, x20 
+    mov x0, x20
+
+    mov x1, 250
+
+	BL go_n_line
+
 	mov x1 , 20
 	BL go_n_line	  
 	mov x1 , 320
